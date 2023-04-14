@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: COMP367-windows
+  name: COMP367-windows
 
 variables:
   solution: '**/*.sln'
