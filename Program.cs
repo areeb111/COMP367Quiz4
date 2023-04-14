@@ -8,6 +8,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddDbContext<COMP367Quiz4Context>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("COMP367Quiz4Context") ?? throw new InvalidOperationException("Connection string 'COMP367Quiz4Context' not found.")));
 
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -22,6 +23,11 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+
 
 app.UseAuthorization();
 
